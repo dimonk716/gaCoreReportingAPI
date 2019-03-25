@@ -1,0 +1,1 @@
+This is a 1st version of unsampled GA reporting. There is an example of usage in ipython notebook.
