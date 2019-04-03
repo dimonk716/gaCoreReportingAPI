@@ -49,6 +49,8 @@ def get_unsampled_report(analytics, ga_report_config):
     #unsampling
     if response.get('reports')[0].get('data').get('samplingSpaceSizes'):
         print('Sampling! Solving..')
+        start_date = ga_report_config['dateRanges'][0]['startDate']
+        end_date = ga_report_config['dateRanges'][0]['endDate']
         if start_date == end_date:
             print('1 day data is still sampled')
             data = get_data(response)
@@ -63,8 +65,6 @@ def get_unsampled_report(analytics, ga_report_config):
                         data_ = get_data(response)
                         data.extend(data_)
             return data, headers
-        start_date = ga_report_config['dateRanges'][0]['startDate']
-        end_date = ga_report_config['dateRanges'][0]['endDate']
         ga_report_antisample = {
           "dateRanges": [
             {
